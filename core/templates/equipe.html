@@ -1,0 +1,37 @@
+<!-- language: html -->
+{% load static %}
+{% load pictures %}
+<section id="team" class="section-padding bg-gray">
+    <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Conheça nosso time</h2>
+          <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+        </div>
+        <div class="row">
+            {% for item in equipes %}
+                <!-- Team Item Starts -->
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="team-item wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="team-img">
+                            <img src="{{ item.foto.url }}" alt="{{ item.nome }}" style="max-width:100%;height:auto;display:block;">
+<!--                            {% picture item.foto ratio="1/1" %}-->
+                        </div>
+                        <div class="contetn">
+                            <div class="info-text">
+                                <h3><a href="#">{{ item.nome }}</a></h3>
+                                <p>{{ item.cargo }}</p>
+                            </div>
+                            <p>{{ item.bio }}</p>
+                            <ul class="social-icons">
+                              <li><a href="{{ item.facebook }}"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
+                              <li><a href="{{ item.twitter }}"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
+                              <li><a href="{{ item.instagram }}"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Item Ends -->
+            {% endfor %}
+        </div>
+    </div>
+</section>
